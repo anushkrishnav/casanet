@@ -38,12 +38,12 @@ class Network:
             * A device can be connected to any number of devices.
             * A device does not necessarily need to be connected to other devices
         '''
+
         if devices[0] == devices[1]:
             return "Error: Cannot connect device to itself."
         
         self.connections[devices[0]].append(devices[1])
         self.connections[devices[1]].append(devices[0])
-
         return 'Successfully connected.'
     
     def set_device_strenght(self, device: str, strenght):
@@ -71,8 +71,12 @@ class Network:
 
         path = [] 
         result = self.find_path(source = source, dest = dest, visited = visited, path = path)
+        name = []
+        for i in result:
+            name.append(i.get_name().upper())
 
-        return result
+
+        return ' -> '.join(name)
 
     def find_path(self,source: Device, dest: Device,visited: dict,path: list) -> list:
         '''
