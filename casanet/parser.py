@@ -19,7 +19,7 @@ class Parser:
         device.set_name(self.command[2])
         return self.net.add_device(device)
     
-    def set_device_strenght(self, device: str, strenght):
+    def set_device_strenght(self, device: str, strenght: int):
         for i in self.net.devices:
             if i.get_name() == device:
                 return self.net.set_device_strenght(device, strenght)
